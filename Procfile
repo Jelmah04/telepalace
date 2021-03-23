@@ -1,0 +1,1 @@
+web: gunicorn fundme.wsgi --log-file -

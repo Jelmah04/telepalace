@@ -25,9 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'uifakkma7epple%p+7ak_bd$i+!^xuw8ojte&sh^uw=#r)t(7g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["teleplace.herokuapp.com", "127.0.0.1"]
+# ALLOWED_HOSTS = ["*"]https://teleplace.herokuapp.com/
 
 
 # Application definition
@@ -131,7 +132,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 AUTH_USER_MODEL = 'web.User'
 
 
-SITE_NAME = "Website Name Here"
+SITE_NAME = "Telepalace"
 SITE_URL = 'http://localhost/'
 
 DEFAULT_EMAIL_SENDER = 'Website Name Here <mail.here@gmail.com>'
