@@ -1,0 +1,76 @@
+
+{% extends "shared/base.html" %}
+{% load static %}
+
+
+{% block title %}
+Funmizesub Data Support
+{% endblock title %}
+
+
+
+
+{% block maintwo %}
+<h3 class="contactsech3">
+    Contact Us
+</h3>
+<section class="contactsec">
+
+    
+    <div class="staywithus">
+        <h4>Stay In Touch With Us</h4>
+        <div >      
+          {% if messages %}
+            {% for item in messages %}
+                <p style="background-color: rgb(105, 236, 105); color: aliceblue; padding: 5px; border-radius: 8px;"> {{ item }} </p>
+            {% endfor %} 
+          {% endif %}
+        </div>
+        <form action="{% url 'contact' %}" method="post">
+            {% csrf_token %}
+            <label for="name">Your Name (Required)</label><br>
+            <input type="text" name="name" id="contactname" required>
+            <br><br>
+            <label for="email">Your Email (Required)</label><br>
+            <input type="text" name="email" id="contactemail" required>
+            <br><br>
+            <label for="phonenum">Your Phone number (Required)</label><br>
+            <input type="text" name="phone" id="contactphonenum">
+            <br><br>
+            <label for="subject"> Subject </label><br>
+            <input type="text" name="subject" id="contactsubject">
+            <br><br>
+            <label for="message">Write Your Message </label><br>
+            <input type="text" name="message" id="contactmessage" style="height: 200px;"><br><br>
+            <button class="btn btn-success" type="submit">Submit</button>   <br><br><br>         
+        </form>
+    </div>
+    <div class="map">
+        <!-- <img width="500px" height="500px" src="{% static 'images/map.png' %}" alt=""> -->
+        <!-- <input type="image" src="{% static 'images/map.png' %}" alt=""> -->
+    </div>
+</section>
+<hr>
+<div class="contactaddress">
+    <div>
+        <h6>Head Quarter Address:</h6>
+        <p>* 6, Imise road, Onihale, ifo, Ogun State, Nigeria</p><br>
+        <h6>Branch Office:</h6>
+        <p>* Gidan Mallam Baaabai, Makoda, Kano State, Nigeria</p><br>
+        <p>* Daarus Salaam, Challenge, Saki, Oyo State, Nigeria</p><br>
+    
+    </div>
+    <div>
+        <h6>Telephone:</h6>
+        <p>+2348118236545</p><br>
+        <h6>Whatsapp:</h6>
+        <p>https://wa.me/2348118236545</p><br>
+    
+        <h6>E-mail:</h6>
+        <p>jelmah00@gmail.com</p><br>
+    
+    </div>
+</div>
+
+
+{% endblock maintwo %}

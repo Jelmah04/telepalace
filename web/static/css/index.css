@@ -1,0 +1,276 @@
+
+*{
+    padding: 0%;
+    margin: 0%;
+    /* background-color: rgb(183, 238, 147); */
+}
+.div1_2{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background-color: gainsboro;
+    /* position: fixed; */
+}
+.div1 i{
+    padding: 0.3rem;
+}
+.div2{
+    /* padding: 10px; */
+    text-align: right;
+}
+.div2 a{
+    padding: 0.5rem;
+    list-style-type: none;
+    text-decoration: none;
+}
+.banner{
+    background-color: rgb(191, 82, 212);
+    min-height: 60vh;
+    /* opacity: 70%; */
+    /* background-image: url(../images/banner1.png); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+.inbanner{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1.5fr; */
+}
+/* .inbannerright */
+.col-2 img{
+    max-width: 100%;
+    padding: 50px 0;
+    /* background-image: url(../images/bann6.png); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* min-height: 60vh; */
+    /* z-index: 1; */
+    /* position: relative; */
+}
+/* .inbannerleft */
+.col-2{
+    flex-basis: 50%;
+    min-width: 300px;
+    /* z-index: -1; */
+    /* position: relative; */
+}
+.getstarted{
+    justify-self: center;
+    padding: 0.7rem;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    background-color: rgb(108, 224, 233);
+    border-radius: 10%;
+}
+.getstarted:hover{
+    background-color: #000;
+    color: rgb(108, 224, 233);
+}
+.chatus{
+    position: relative;
+    border: none;
+    background-color: rgb(187, 245, 28);
+    float: right;
+    justify-self: right;
+    display: grid;
+    align-items: right;
+    align-self: right;
+}
+
+
+
+
+
+
+
+.servicesection, .why{
+    width: 80%;
+    margin: 30px auto;
+}
+.serviceheading{
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.servicediv{
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+}
+.service{
+    border: 1px solid rgb(236, 85, 168);
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    position: relative;
+    padding: 1rem;
+    margin: 1rem;
+}
+.serviceimg{
+    margin-top: 1.2rem;
+}
+.servicename{
+    text-align: center;
+    font-weight: 500;
+}
+.servicedescription{
+    text-align: center;
+}
+.avatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    left: 45%;
+    background-color: rgb(245, 81, 81);
+    margin: 0px auto;
+    color: #fff;
+    font-weight: bolder;
+}
+.why{
+    text-align: center;
+    background-color: rgb(236, 232, 236);
+    padding-top: 1rem;
+
+}
+.whyhead{
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.whymainin{
+    padding: 0.8rem;
+    margin: 1rem;
+}
+.whymainin{
+    border: 1px solid thistle;
+    box-shadow: blue;
+    border-radius: 10px;
+}
+.whymainin .fas{
+    font-size: 2.3rem;
+    color:  rgb(191, 82, 212);
+    margin: 1rem 0;
+}
+
+
+.ashtag{
+    font-size: 2.3rem;
+    font-weight: 1000;
+    color: rgb(27, 122, 230);
+    /* background-color: #bbb; */
+    /* border-radius: 50%; */
+    /* padding: 7px 10px; */
+}
+.testimonials{
+    width: 60%;
+    margin: 10px auto;
+    text-align: center;
+}
+.testiimg{
+    /* width: 0.5; */
+    /* height: 9rem; */
+    border-radius: 100%;
+    border: 2px soild black;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    justify-self: center;
+    justify-content: center;
+}
+.divtestiimg{
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgb(191, 82, 212);
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    justify-self: center;
+    justify-content: center;
+
+}
+
+
+footer{
+    background-color:  rgb(191, 82, 212);
+    padding: 10px;
+}
+.whatsappbtn{
+    width: 10%;
+    /* position: fixed; */
+}
+
+
+
+/* for dashboard styling */
+.navbar-brand span{
+    font-size: 0.7rem;
+    color: yellowgreen; 
+    font-weight: bolder; 
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.menuli a{
+    font-size: 0.6rem;
+    color: blue;
+}
+
+
+
+
+
+
+ /* Large devices (desktops, 992px and up) */
+ @media (min-width: 769px) { 
+    .servicediv{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: relative;
+    }
+    .avatar{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        background-color: rgb(245, 81, 81);
+        margin: 0px auto;
+        color: #fff;
+        font-weight: bolder;
+    }
+    .whymain{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .whymainin{
+        padding: 0.8rem;
+        margin: 1rem;
+    }
+    
+    #registerform{
+        width: 40%;
+        margin: 0 auto;
+        border: 2px solid rgb(68, 60, 179);
+        padding: 0.8rem;
+    }
+
+    .navbar-brand span{
+        font-size: 1.5rem;
+        color: yellowgreen; 
+        font-weight: bolder; 
+        font-style: italic;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .menuli a{
+        font-size: 1.1rem;
+    }
+ }

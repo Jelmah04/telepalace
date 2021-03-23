@@ -1,0 +1,63 @@
+
+{% extends "shared/base.html" %}
+{% load static %}
+
+{% block title %}
+  Transaction Records
+{% endblock title %}
+
+
+{% block maintwo %}
+
+<section class="seesales">
+  <div class="container">
+    <h3 class="text-center mt-5">Transactions History</h3>
+    <div class="row">
+      <div class="col-sm-12">
+       {% if allhistory %}
+       <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr class="">
+            <!-- <th scope="col">Customer</th> -->
+            <th scope="col">Reference Code</th>
+            <th scope="col">Card Number</th>
+            <th scope="col">Volume</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Status</th>
+            <th scope="col">Pre_bal</th>
+            <th scope="col">Post_bal</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for item in allhistory %}
+          <tr class="">
+            <!-- <td class="intra">{{item.user.username}}</td> -->
+            <td>{{item.reference_id }}</td>
+            <td>{{item.volume}}</td>
+            <td>{{item.card_number}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.status}}</td>
+            <td>{{item.prebal}}</td>
+            <td>{{item.postbal}}</td>
+            <td>{{item.date}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+       {% else %}
+         <p>
+           <h4 class="bg-danger text-white p-4 ">No Record as at now</h4>
+         </p>
+       {% endif %}
+       
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{% endblock maintwo %}
+
+

@@ -1,0 +1,54 @@
+
+.fullprofile{
+    width: 80%;
+    margin: 0 auto;
+}
+.profileinfo label{
+    width: 20%;
+}
+.profileinfo input, .profileinfo select{
+    width: 70%;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
+    background-color: rgb(157, 161, 163);
+    color: #000;
+    padding-left: 5px;
+    height: 38px;
+}
+
+
+
+
+ input, select{
+     width: 90%;
+     /* border-top: 0; */
+     /* border-right: 0; */
+     /* border-left: 0; */
+     /* border-bottom: 0; */
+     /* background-color: rgb(157, 161, 163); */
+     color: #000;
+     padding-left: 5px;
+     height: 38px;
+ }
+ 
+ 
+
+
+
+
+
+
+
+@media (max-width: 769px){
+    label{
+        width: 80%;
+    }
+    input, select{
+        width: 95%;
+        height: 35px;
+    }
+        
+}
+

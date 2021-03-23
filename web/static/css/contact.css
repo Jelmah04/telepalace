@@ -1,0 +1,75 @@
+
+.contactsec{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 85%;
+    margin: 0 auto;
+}
+.contactsech3{
+    background-color: rgb(179, 223, 93);
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    font-style: normal;
+    text-align: center;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+}
+.staywithus h4{
+    font-weight: bolder;
+    color: thistle;
+}
+.staywithus form input{
+    width: 96%;
+    background-color: thistle;
+    height: 35px;
+    border: 0px;
+}
+.staywithus form label{
+    font-size: 1rem;
+    font-weight: bolder;
+}
+.contactaddress div h6{
+    color: yellowgreen;
+}
+.contactaddress{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 85%; 
+    margin: 0 auto;
+}
+.contactaddress div{
+    margin-right: 5px;
+}
+.map{
+    background-image: url(../images/map.png);
+    height: 600px;
+    width: 100%;
+    margin: auto;
+}
+
+
+
+
+@media (max-width: 769px){
+    .contactsec{
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 85%;
+        margin: 0 auto;
+    }
+    .contactaddress{
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 85%; 
+        margin: 0 auto;
+    }
+    .map{
+        background-image: url(../images/map.png);
+        height: 300px;
+        width: 100%;
+        margin: auto;
+    }
+    
+
+}
+

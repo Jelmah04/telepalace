@@ -1,0 +1,262 @@
+
+{% extends "shared/base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Buy Data
+{% endblock title %}
+
+
+
+{% block maintwo %}
+
+<style>
+  .servesecdd{
+    margin-left: 1rem;
+    padding-left: 1rem;
+    margin-right: 1rem;
+
+  }
+  label{
+    color: #000;
+    font-weight: bolder;
+  }
+    .servesec{
+        margin: 8% auto;
+        border: rgb(241, 48, 184) 1px solid;
+        width: 50%;
+    }
+    #sellairtimeform{
+        width: 80%;
+        margin: 0 auto;
+    }
+    input, select{
+        width: 90%;
+        border-radius: 5px;
+        /* opacity: 40%; */
+    }
+    .sub{
+        width: 50%;
+        margin: 0 auto;
+        opacity: 100%;
+    }
+     /* Small devices (landscape phones, 576px and up) */
+     @media (max-width: 768px) {     
+    
+    }
+         /* Small devices (landscape phones, 576px and up) */
+     @media (max-width: 768px) {     
+        .servesec{
+          margin: 8% auto;
+          border: rgb(241, 48, 184) 1px solid;
+          width: 75%;
+        }
+    
+    }
+    </style>
+    
+
+<script type="text/javascript">
+ //<![CDATA[ 
+ // array of possible countries in the same order as they appear in the country selection list MTN, 9MOBILE, GLO or AIRTEL
+ var countryLists = new Array(4) 
+ countryLists["empty"] = ["Select a Country"]; 
+ countryLists["MTN"] = ["COPERATE GIFTING 1GB = N300","COPERATE GIFTING 2GB = N1000","COPERATE GIFTING 3GB = N1500", "COPERATE GIFTING 4GB = N1900","COPERATE GIFTING 5GB = N2400","COPERATE GIFTING 10GB = N2400","SME 1GB = N300","SME 2GB = N1000","SME 3GB = N1500", "SME 4GB = N1900","SME 5GB = N2400","SME 10GB = N2400","NORMAL GIFTING 1GB = N300","NORMAL GIFTING 2GB = N1000","NORMAL GIFTING 3GB = N1500", "NORMAL GIFTING 4GB = N1900","NORMAL GIFTING 5GB = N2400","NORMAL GIFTING 10GB = N2400" ]; 
+ countryLists["GLO"] = ["1GB = N450","2GB = N850","4.5GB = N1700","7.2GB = N2125"]; 
+ countryLists["ETISALAT"]= ["1GB = N700","2GB = N1400","3GB = N2000"]; 
+countryLists["AIRTEL"]= ["1.5GB = N950","3.5GB = N1900","5GB = N2400"]; 
+ /* CountryChange() is called from the onchange event of a select element. 
+ * param selectObj - the select object which fired the on change event. 
+ */ 
+ function countryChange(selectObj) { 
+ // get the index of the selected option 
+ var idx = selectObj.selectedIndex; 
+ // get the value of the selected option 
+ var which = selectObj.options[idx].value; 
+ // use the selected option value to retrieve the list of items from the countryLists array 
+ cList = countryLists[which]; 
+ // get the country select element via its known id 
+ var cSelect = document.getElementById("country"); 
+ // remove the current options from the country select 
+ var len=cSelect.options.length; 
+ while (cSelect.options.length > 0) { 
+ cSelect.remove(0); 
+ } 
+ var newOption; 
+ // create new options 
+ for (var i=0; i<cList.length; i++) { 
+ newOption = document.createElement("option"); 
+ newOption.value = cList[i];  // assumes option string and value are the same 
+ newOption.text=cList[i]; 
+ // add the new option 
+ try { 
+ cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE 
+ } 
+ catch (e) { 
+ cSelect.appendChild(newOption); 
+ } 
+ } 
+ } 
+//]]>
+</script>
+ 
+
+<section class="servesec"><br>
+    <center><h4 ><strong>Buy Data</strong></h4></center>
+
+    <div class="servesecdd">
+    <form method="POST" action="{% url 'data' %}" id="sellairtimeform">
+      {% csrf_token %}
+      <div class="form-group col-lg-12">
+      <label for="continent">Choose Network</label>
+      <select name="service" class="form-control" id="continent" onchange="countryChange(this);">
+          <option value="empty">Select a network</option>
+          <option value="MTN">MTN</option>
+          <option value="AIRTEL">AIRTEL</option>
+          <option value="ETISALAT">ETISALAT</option>
+          <option value="GLO">GLO</option>
+      </select>
+   <br/>
+      <label for="country">Select plan</label>
+      <select name="plan" id="country" class="form-control" required = "required">
+     
+      </select>
+   <br/>
+      <label>Phone Number</label>
+      <input name="number" class="form-control" required = "required">
+  </div>
+      <div class="col-lg-12">
+          <button type="submit" class="btn btn-info btn-block">Start Process</button>
+          <br>
+      </div>
+  </form>				
+</div>
+
+
+        <h5 style="float: right;"><a href="{% url 'services' %}"> Go back </a></h5>
+</section>
+
+{% endblock maintwo %}
+
+
+
+
+
+
+
+
+
+
+
+        <form action="{% url 'data' %}" method="POST" id="sellairtimeform">
+          {% csrf_token %}
+          <label for="pnumber">Phone Number</label><br>
+          <input type="text" id="pnumb" name="pnumb" class="pnumb" placeholder="Input Phone Number" required><br><br>
+
+          <label for="snetwork">Select Network</label><br>
+          <select name="networks" id="" aria-placeholder="Choose a network" placeholder="Choose a network type" class="">
+            <option value="sm">Choose a network type
+              <!-- {% if dataplan %} -->
+                <!-- {% for item in dataplan %} -->
+                <!-- <li class="dropdown-menu">{{ item.network_name }}</li>                   -->
+                <!-- {% endfor %} -->
+              <!-- {% endif %} -->
+            </option>
+
+            <option value="mtn">MTN</option>
+            <option value="mtn">GLO</option>
+            <option value="mtn">Airtel</option>
+            <option value="mtn">9mobile</option>
+          </select>
+
+                      <!-- Dropdown Trial -->
+                      <!-- <div class="dropdown"> -->
+                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> -->
+                          <!-- Select Network Bundle -->
+                        <!-- </button> -->
+                        <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+                          <!-- {% if dataplan %} -->
+                          <!-- {% for item in dataplan %} -->
+                          <!-- <li class="dropdown item">{{ item.network_name }}</li>                   -->
+                          <!-- {% endfor %} -->
+                          <!-- {% endif %} -->
+                        <!-- </ul> -->
+                      <!-- </div> -->
+                      <!-- Dropdown Trial End -->
+                      <br><br>
+                      
+          <label for="snetwork">Select Plan</label><br>
+          <select name="plans" id="">
+            <option value="sm">Choose a plan</option>
+            <option value="mtn">MTN giftings</option>
+            <option value="mtn">sme</option>
+            <option value="mtn">Airtel</option>
+            <option value="mtn">9mobile</option>
+          </select><br><br>
+
+          <label for="amount">Amount</label><br>
+          <input type="number" class="" name="amount" placeholder="Input Amount to Fund" required><br><br>
+        <center>
+          <input type="submit" value="Purchase" class="sub btn btn-success" onclick='prom()'>
+        </center>
+        </form><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="servesec"><br>
+    <center><h4 ><strong>Buy Data</strong></h4></center>
+        <form action="" method="POST" id="sellairtimeform">
+          {% csrf_token %}
+          <label for="pnumber">Phone Number</label><br>
+          <input type="text" id="pnumb" name="pnumb" class="pnumb" placeholder="Input Phone Number" required><br><br>
+
+          <label for="snetwork">Select Network</label><br>
+          <select name="networks" id="">
+            <option value="sm">Choose a network</option>
+            <option value="mtn">MTN</option>
+            <option value="mtn">GLO</option>
+            <option value="mtn">Airtel</option>
+            <option value="mtn">9mobile</option>
+          </select><br><br>
+          <label for="snetwork">Select Plan</label><br>
+          <select name="plans" id="">
+            <option value="sm">Choose a plan</option>
+            <option value="mtn">MTN giftings</option>
+            <option value="mtn">sme</option>
+            <option value="mtn">Airtel</option>
+            <option value="mtn">9mobile</option>
+          </select><br><br>
+
+          <label for="amount">Amount</label><br>
+          <input type="number" class="" name="amount" placeholder="Input Amount to Fund" required><br><br>
+        <center>
+          <input type="submit" value="Purchase" class="sub btn btn-success" onclick='prom()'>
+        </center>
+        </form><br>
+
+        <h5 style="float: right;"><a href="{% url 'services' %}"> Go back </a></h5>
+</section>
+
+
+
+
+
+
+
+
+

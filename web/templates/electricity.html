@@ -1,0 +1,85 @@
+
+{% extends "shared/base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Get Electricity
+{% endblock title %}
+
+
+
+{% block maintwo %}
+
+<style>
+    .servesec{
+        margin: 8% auto;
+        border: rgb(241, 48, 184) 1px solid;
+        width: 50%;
+    }
+    #sellairtimeform{
+        width: 80%;
+        margin: 0 auto;
+    }
+    input, select{
+        width: 90%;
+        border-radius: 5px;
+        opacity: 40%;
+    }
+    .sub{
+        width: 50%;
+        margin: 0 auto;
+        opacity: 100%;
+    }
+     /* Small devices (landscape phones, 576px and up) */
+     @media (max-width: 768px) {     
+    
+    }
+         /* Small devices (landscape phones, 576px and up) */
+     @media (max-width: 768px) {     
+        .servesec{
+          margin: 8% auto;
+          border: rgb(241, 48, 184) 1px solid;
+          width: 75%;
+        }
+    
+    }
+
+    </style>
+    
+    
+
+
+<section class="servesec"><br>
+    <center><h4 ><strong>Pay Electricity Bill</strong></h4></center>
+        <form action="" method="POST" id="sellairtimeform">
+          {% csrf_token %}
+          <label for="pnumber">Smart Card Number</label><br>
+          <input type="number" id="pnumb" name="pnumb" class="pnumb" placeholder="Input Phone Number" required><br><br>
+
+          <label for="snetwork">Select Disco</label><br>
+          <select name="networks" id="">
+            <option value="sm">Choose a disco</option>
+            <option value="mtn">Ikeja</option>
+            <option value="mtn">P.Cort</option>
+            <option value="mtn">Ibadan</option>
+            <option value="mtn">Kano</option>
+          </select><br><br>
+          <label for="snetwork">Select Tariff Plan</label><br>
+          <select name="networks" id="">
+            <option value="sm">Choose a tariff</option>
+            <option value="mtn">Postpaid</option>
+            <option value="mtn">Prepaid</option>
+          </select><br><br>
+
+          <label for="amount">Amount</label><br>
+          <input type="number" class="" name="amount" placeholder="Input Amount to Fund" required><br><br>
+        <center>
+          <input type="submit" value="Purchase" class="sub btn btn-success" onclick='prom()'>
+        </center>
+        </form><br>
+
+        <h5 style="float: right;"><a href="{% url 'services' %}"> Go back </a></h5>
+</section>
+
+{% endblock maintwo %}

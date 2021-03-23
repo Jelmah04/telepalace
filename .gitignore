@@ -1,0 +1,10 @@
+venv
+env
+# have deleted env in this project, only venv remaining
+*migrations
+migrations
+*__pycache__
+__pycache__
+sent_emails/
+db.sqlite3
+.vscode

@@ -1,0 +1,133 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/aba0bd1eaf.js" crossorigin="anonymous"></script>
+
+    <!-- Customize CSS -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+    <title>
+      {% block title %}
+      
+      {% endblock title %}
+    </title>
+  </head>
+  <div class="div1_2">
+    <div class="div1">
+      <a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+      <a href="https://wa.me/2348106966584"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+      <a href="https://wa.me/2348106966584"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+      <a href="https://wa.me/2348106966584"><i class="fa fa-phone-square" aria-hidden="true"></i></a>
+    </div>
+    <div class="div2" style="float: right;">
+      <a href="{% url 'login' %}">Help</a>
+      <a href="{% url 'login' %}">FAQ</a>
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'register' %}">Register</a>
+    </div>
+  </div>
+
+  <body>
+
+{% block mainmain %}
+  
+    <main id="main">
+      <style>
+        .dashboard{
+          display: grid;
+          grid-template-columns: 20% 80%;
+        }
+        .sidebarr ul li a, .top h5 a{
+          list-style: none;
+          list-style-type: none;
+          text-decoration: none;
+        }
+      </style>
+
+
+    <section class="dashboard" >
+        <div class="sidebarr">
+          <div><br>
+            <center>
+            <a class="navbar-brand" href="{% url 'login'%}" >
+              <img src="{% static 'images/telepalaceimg.png' %}" width="50" height="40" class="d-inline-block align-top" alt="" loading="lazy"><br>
+              <span>TELEPALACE</span>
+            </a>
+            </center>
+          </div>
+          <ul>
+            <li class="menuli"><a href="{% url 'dashboard' %}"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li class="menuli"><a href="{% url 'services' %}"><i class="fab fa-servicestack"></i>Services</a></li>
+            <li class="menuli"><a href="{% url 'contact' %}"><i class="fa fa-phone-square"></i>Contact Us</a></li>
+            <li class="menuli"><a href="{% url 'wallet' %}"><i class="fas fa-address-book"></i>My Wallet</a></li>
+            <li class="menuli"><a href="{% url 'funding' %}"><i class="fas fa-address-card"></i>Funding</a></li>
+            <li class="menuli"><a href="{% url 'transactionhistory' %}"><i class="fas fa-hourglass-half"></i>Transaction records</a></li>
+            <li class="menuli"><a href="{% url 'profile' %}"><i class="fas fa-question-circle"></i>Profile</a></li>
+            <li class="menuli"><a href="{% url 'change_password' %}"><i class="fab fa-quinscape"></i>Change Password</a></li>
+            <li class="menuli"><a href="{% url 'logout' %}"><i class="fas fa-sign-in-alt"></i>Logout</a></li>
+          </ul>
+        </div>
+
+        <div>
+          {% block maintwo %}
+            
+          {% endblock maintwo %}
+        </div>
+    
+    </section>
+    
+    <style>
+      .intra{
+        color: yellowgreen;
+      }
+    </style>
+    
+    <script>
+      function prom(){
+        numb = document.getElementById('pnumb').value
+        alert('congratulations, your order has been sent successfully to' + " " + numb)
+      }
+      function ion(){
+        document.getElementById('selldataform').style.display = none
+      }
+    </script>
+    
+    </main>
+    {% endblock mainmain %}
+
+
+    {% block main %}
+      
+    {% endblock main %}
+
+    <footer>
+      <center>
+      <p><strong> Copyright &copy; 2021 funmieazy.com</strong></p>
+      </center>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="{% static 'js/service.js' %}"></script> 
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

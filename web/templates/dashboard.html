@@ -1,0 +1,298 @@
+
+{% extends "shared/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  Dashboard
+{% endblock title %}
+
+
+
+
+{% block maintwo %}
+<div class="mainbarr">
+  <div class="top">
+    <h5><a href="#sellairtimeform">Airtime</a></h5>
+    <h5><a href="#need">Purchase Services</a></h5>
+    <h5><a href="{% url 'login' %}">Funding</a></h5>
+    <h6 id="greetings">
+        <p style="color: greenyellow;">Welcome, {{request.user.first_name.capitalize}}</p>
+      {% comment %} {% if request.user.is_authenticated %} {% endcomment %}
+        {% comment %} <p style="color: greenyellow;">Welcome, {{request.user.username}}</p> {% endcomment %}
+      {% comment %} {% endif %} {% endcomment %}
+    </h6>
+  </div>
+
+  <div class="dailyrecords">
+    <div class="records wb">
+      <span id="recordspan1" class="recordspan"></span>
+      <span id="recordspan2" class="recordspan"></span>
+      <i class="fas fa-qrcode"></i><br>
+      <!-- <h5># {{nbalance | intcomma}} </h4> -->
+      <p>Wallet Balance: <span>&#8358</span> {{ user_wallet }}</p>          
+      <p>Previous Balance: <span>&#8358</span>{{obalance}}</p>
+    </div>
+    <div class="records ttt">
+      <span id="recordspan1" class="recordspan"></span>
+      <span id="recordspan2" class="recordspan"></span>
+      <i class="fas fa-qrcode"></i><br>
+      <h5> {{ userid }} </h4>
+      <p>Today's Transaction Balance: <span>&#8358</span>{{cbalance | intcomma}}</p>
+    </div>
+    <div class="records ttp">
+      <span id="recordspan1" class="recordspan"></span>
+      <span id="recordspan2" class="recordspan"></span>
+      <i class="fas fa-qrcode"></i><br>
+      <h5>{{request.user.phone}}</h4>
+      <p>Today's Total Purchase: <span>&#8358</span>0</p>
+    </div>
+  </div>
+
+        <div id="need">
+          <button type="button" class="sell-btn btn need" style="font-size: 12px; color: blue;" onclick="showmydata()"><strong><a href="#selldataforms">Need Data</a></strong></button>
+          <button type="button" class="sell-btn btn need" style="font-size: 12px; color: blue;" onclick="showmycalc()"><strong><a href="#calculators">Calculator</a></strong></button>
+          <button type="button" class="sell-btn btn need" style="font-size: 12px; color: blue;" onclick="showmyairt()"><strong><a href="#sellairtimeforms">Need Airtime</a></strong></button>
+          <button type="button" class="sell-btn btn need" style="font-size: 12px; color: blue;" onclick="showmytrans()"><strong><a href="#sellairtimeforms">Transaction History</a></strong></button>
+        </div>
+
+
+  <div class="ncnt" >
+    <div class="buyplans">    
+      <div class="btn-box">
+
+        <!-- <div class="btn"></div><br> -->
+      <div class="showmyd" >
+        <br>
+        <button type="button" class="sell-btn btn" id="selldataforms" onclick="ion()"><strong>Sell Data</strong></button>
+
+          <div class="servesecdd">
+    <form method="POST" action="{% url 'login' %}" accept-charset="UTF-8" id="&quot;quick-form selldataform">
+      {% csrf_token %}
+      <div class="form-group col-lg-12">
+      <label for="continent">Choose Network</label>
+      <select name="service" class="form-control" id="continent" onchange="countryChange(this);">
+
+        <option value="empty">Select a network</option>
+          <option id="1" value="MTN">MTN</option>
+          <option id="4" value="AIRTEL">AIRTEL</option>
+          <option id="3" value="ETISALAT">ETISALAT</option>
+          <option id="2" value="GLO">GLO</option>
+      </select>
+   <br/>
+      <label for="country">Select plan</label>
+      <select name="plan" id="country" class="form-control" required = "required">
+     
+      </select>
+   <br/>
+      <label>Phone Number</label>
+      <input name="number" class="form-control" required = "required">
+  </div>
+      <div class="col-lg-12">
+          <button type="submit" class="btn btn-info btn-block">Start Process</button>
+          <br>
+      </div>
+  </form>				
+</div>
+
+
+        <br><br>
+      </div>
+
+      <div class="showmyc" hidden>
+        <button type="button" class="sell-btn btn" id="calculators" onclick="reter()"><strong>Calculator</strong></button><hr>
+        <div class="letscalc">
+          <br>
+          <!-- <div class="calcscreen"></div> -->
+          <form action="#" name="calc" class="calculator"><br>
+            <input type="text" name="txt" class="value" readonly="">
+            
+            <span class="num clear" onclick="document.calc.txt.value =''"> C </span>
+            <span class="num" onclick="document.calc.txt.value +='/'"> / </span>
+            <span class="num" onclick="document.calc.txt.value +='*'"> * </span>
+            <span class="num" onclick="document.calc.txt.value +='7'"> 7 </span>
+            <span class="num" onclick="document.calc.txt.value +='8'"> 8 </span>
+            <span class="num" onclick="document.calc.txt.value +='9'"> 9 </span>
+            <span class="num" onclick="document.calc.txt.value +='-'"> - </span>
+            <span class="num" onclick="document.calc.txt.value +='4'"> 4 </span>
+            <span class="num" onclick="document.calc.txt.value +='5'"> 5 </span>
+            <span class="num" onclick="document.calc.txt.value +='6'"> 6 </span>
+            <span class="num plus" onclick="document.calc.txt.value +='+'"> + </span>
+            <span class="num" onclick="document.calc.txt.value +='1'"> 1 </span>
+            <span class="num" onclick="document.calc.txt.value +='2'"> 2 </span>
+            <span class="num" onclick="document.calc.txt.value +='3'"> 3 </span>
+            <span class="num" onclick="document.calc.txt.value +='0'"> 0 </span>
+            <span class="num" onclick="document.calc.txt.value +='00'"> 00 </span>
+            <span class="num" onclick="document.calc.txt.value +='.'"> . </span>
+            <span class="num equal" onclick="document.calc.txt.value = eval(calc.txt.value)"> = </span>
+          
+          </form>
+        </div><br><br>
+      </div>
+
+
+      <div class="showmya" >
+        <button type="button" class="sell-btn btn" id="sellairtimeforms" onclick="reter()"><strong>Sell Airtime</strong></button><hr>
+
+        <form action="" method="POST" id="sellairtimeform">
+          {% csrf_token %}
+          <label for="pnumber">Phone Number</label><br>
+          <input type="text" id="pnumb" name="pnumb" class="pnumb" placeholder="Input Phone Number" required><br><br>
+
+          <label for="snetwork">Select Network</label><br>
+          <select name="networks" id="">
+            <option value="sm">Choose a network</option>
+            <option value="mtn">MTN</option>
+            <option value="mtn">GLO</option>
+            <option value="mtn">Airtel</option>
+            <option value="mtn">9mobile</option>
+          </select><br><br>
+          <label for="amount">Amount</label><br>
+          <input type="number" class="" name="amount" placeholder="Input Amount to Fund" required><br><br>
+
+          <button type="submit" class="btn btn-info btn-block">Start Process</button>
+    <!-- <button class="sub subi btn btn-success" style="margin-right: 2rem;">Purchase</button> -->
+        
+        </form><br>
+      </div>
+
+
+      </div>
+    </div>
+
+
+
+    <div class="seesales"><br>
+    <button class="sub subi btn btn-primary">Purchase</button>
+      
+      <h5>Transactions History</h5><br><br>
+
+
+      <div class="col-sm-12">
+        {% if history %}
+        <table class="table table-hover">
+         <thead class="thead-dark">
+           <tr class="">
+             <th scope="col">Reference Code</th>
+             <th scope="col">Card Number</th>
+             <th scope="col">Status</th>
+           </tr>
+         </thead>
+         <tbody>
+ 
+           {% for item in history %}
+           <tr class="">
+             <!-- <td class="intra">{{item.user.username}}</td> -->
+             <td>{{item.reference_id }}</td>
+             <td>{{item.card_number}}</td>
+             <td>{{item.status}}</td>
+           </tr>
+           {% endfor %}
+         </tbody>
+       </table>
+        {% else %}
+          <p>
+            <h4 class="bg-danger text-white p-4 ">No Record as at now</h4>
+          </p>
+        {% endif %}
+        
+       </div>
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock maintwo %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <!-- <h6>No Recent Transaction</h6> -->
+      <div class="transtable" style="display:grid; grid-template-columns: 1fr 1fr 1fr;">
+        <h6 class="intranstable">Reference</h6>
+        <h6 class="intranstable">Description</h6>
+        <h6 class="intranstable">Status</h6>
+      </div><hr>
+
+      {% for item in history %}
+        <div class="transtable">
+          <p class="intra"> {{item.reference_id}} </p>
+          <p class="intra"> {{item.card_number}} </p>
+          <!-- <p class="intra"> {{item.amount}} </p> -->
+          <p class="intra"> {{item.status}} </p>
+        </div>            
+      {% endfor %}
+
+
+
+
+
+
+
+
+        <form action="" method="POST" id="selldataform">
+          {% csrf_token %}
+          <label for="pnumber">Phone Number</label><br>
+          <input type="text" id="pnumb" name="pnumb" class="pnumb" placeholder="Input Phone Number" required><br><br>
+
+          <label for="snetwork">Select Network</label><br>
+          <select name="networks" id="">
+            <option value="sm">Choose a network</option>
+            <option value="mtn">MTN</option>
+            <option value="mtn">GLO</option>
+            <option value="mtn">Airtel</option>
+            <option value="mtn">9mobile</option>
+          </select><br><br>
+          <label for="cplan">Choose Plan</label><br>
+          <select name="plan" id="">
+            <option value="cap">Choose a plan</option>
+            <option value="sme">SME</option>
+            <option value="gift">Gifting</option>
+          </select><br><br>
+          <label for="amount">Amount</label><br>
+          <select name="amount" id="">
+            <option value="1gb">Input volume to subscribe</option>
+            <option value="500mb">500mb</option>
+            <option value="1000mb">1gb</option>
+            <option value="2000mb">2gb</option>
+            <option value="3000mb">3gb</option>
+            <option value="4000mb">4gb</option>
+            <option value="5000mb">5gb</option>
+          </select><br><br>
+    
+    <button class="sub subi btn btn-success" style="margin-right: 2rem;">Purchase</button>
+
+        
+        </form>
+
+

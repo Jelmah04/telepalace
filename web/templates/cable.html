@@ -1,0 +1,203 @@
+
+{% extends "shared/base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Get Cable Sub...
+{% endblock title %}
+
+
+
+{% block maintwo %}
+
+<style>
+  .servesecdd{
+    margin-left: 1rem;
+    padding-left: 1rem;
+    margin-right: 1rem;
+
+  }
+  label{
+    color: #000;
+    font-weight: bolder;
+  }
+    .servesec{
+        margin: 8% auto;
+        border: rgb(241, 48, 184) 1px solid;
+        width: 50%;
+    }
+    #sellairtimeform{
+        width: 80%;
+        margin: 0 auto;
+    }
+    input, select{
+        width: 90%;
+        border-radius: 5px;
+        /* opacity: 40%; */
+    }
+    .sub{
+        width: 50%;
+        margin: 0 auto;
+        opacity: 100%;
+    }
+     /* Small devices (landscape phones, 576px and up) */
+     @media (max-width: 768px) {     
+        .servesec{
+          margin: 8% auto;
+          border: rgb(241, 48, 184) 1px solid;
+          width: 75%;
+        }
+    
+    }
+    
+    </style>
+    
+<script type="text/javascript">
+ //<![CDATA[ 
+ // array of possible countries in the same order as they appear in the country selection list MTN, 9MOBILE, GLO or AIRTEL
+ var countryLists = new Array(4) 
+ countryLists["empty"] = ["Select a Service"]; 
+ countryLists["GOTV"] = ["GOtv LITE (GOLITE) - N400","GOtv Value  (GOTV) - N1250","GOtv Plus  (GOTVPLS) - N1900","GOtv Max (GOTVMAX) - N3200" ]; 
+ countryLists["DSTV"]= ["DStv Access (ACSSE36) - N2000","DStv Family (COFAME36) - N4000","DStv Compact (COMPE36) - N6800","DStv Compact Plus (COMPLE36) - N10650","DStv Premium (PRWE36) - N15800","DStv Premium + HD/Exra View () - N18000"]; 
+ countryLists["STARTIMES"] = ["StarTimes nova (starn)- N900","StarTimes Basic (STARB)- N1300","StarTimes Smart (STARS)- N1900","StarTimes Classic (STARC) - N2600","StarTimes Unique (STARU) - N3800"]; 
+//  countryLists["CONSAT"] =  
+     
+ /* CountryChange() is called from the onchange event of a select element. 
+ * param selectObj - the select object which fired the on change event. 
+ */ 
+ function countryChange(selectObj) { 
+ // get the index of the selected option 
+ var idx = selectObj.selectedIndex; 
+ // get the value of the selected option 
+ var which = selectObj.options[idx].value; 
+ // use the selected option value to retrieve the list of items from the countryLists array 
+ cList = countryLists[which]; 
+ // get the country select element via its known id 
+ var cSelect = document.getElementById("country"); 
+ // remove the current options from the country select 
+ var len=cSelect.options.length; 
+ while (cSelect.options.length > 0) { 
+ cSelect.remove(0); 
+ } 
+ var newOption; 
+ // create new options 
+ for (var i=0; i<cList.length; i++) { 
+ newOption = document.createElement("option"); 
+ newOption.value = cList[i];  // assumes option string and value are the same 
+ newOption.text=cList[i]; 
+ // add the new option 
+ try { 
+ cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE 
+ } 
+ catch (e) { 
+ cSelect.appendChild(newOption); 
+ } 
+ } 
+ } 
+//]]>
+</script>
+ 
+<section class="servesec"><br>
+    <center><h4 ><strong>Make Cable Subscription</strong></h4></center>
+<div class="servesecdd">
+
+  <form method="POST" action="{% url 'data' %}" id="sellairtimeform">
+    {% csrf_token %}
+    <div class="form-group col-lg-12">
+    <label for="continent">Choose Cable Type</label>
+    <select name="service" class="form-control" id="continent" onchange="countryChange(this);">
+        <option value="empty">Select a network</option>
+        <option value="GOTV">GOTV</option>
+        <option value="DSTV">DSTV</option>
+        <option value="STARTIMES">STARTIMES</option>
+        <!-- <option value="CONSAT">CONSAT</option> -->
+    </select>
+ <br/>
+    <label for="country">Select plan</label>
+    <select name="plan" id="country" class="form-control" required = "required">
+   
+    </select>
+ <br/>
+    <label>Decoder Number</label>
+    <input name="number" class="form-control" required = "required">
+</div>
+    <div class="col-lg-12">
+        <button type="submit" class="btn btn-info btn-block">Start Process</button>
+        <br>
+    </div>
+</form>				
+
+</div>
+  <br><br><br>
+                 
+
+        <h5 style="float: right;"><a href="{% url 'services' %}"> Go back </a></h5>
+</section>
+
+{% endblock maintwo %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+ 
+ //<![CDATA[ 
+ 
+
+ var country2Lists2 = new Array(4) 
+ country2Lists2["empty"] = ["Select a Service"]; 
+ 	
+ country2Lists2["GOTV"] = ["GOtv LITE (GOLITE) - N400","GOtv Value  (GOTV) - N1250","GOtv Plus  (GOTVPLS) - N1900","GOtv Max (GOTVMAX) - N3200" ]; 
+ country2Lists2["DSTV"]= ["DStv Access (ACSSE36) - N2000","DStv Family (COFAME36) - N4000","DStv Compact (COMPE36) - N6800","DStv Compact Plus (COMPLE36) - N10650","DStv Premium (PRWE36) - N15800","DStv Premium + HD/Exra View () - N18000"]; 
+
+ country2Lists2["STARTIMES"] = ["StarTimes nova (starn)- N900","StarTimes Basic (STARB)- N1300","StarTimes Smart (STARS)- N1900","StarTimes Classic (STARC) - N2600","StarTimes Unique (STARU) - N3800"]; 
+ 
+ function country2Change2(selectObj) { 
+ // get the index of the selected option 
+ var idx = selectObj.selectedIndex; 
+ // get the value of the selected option 
+ var which = selectObj.options[idx].value; 
+ // use the selected option value to retrieve the list of items from the country2Lists2 array 
+ cList = country2Lists2[which]; 
+ // get the country2 select element via its known id 
+ var cSelect = document.getElementById("country2"); 
+ // remove the current options from the country2 select 
+ var len=cSelect.options.length; 
+ while (cSelect.options.length > 0) { 
+ cSelect.remove(0); 
+ } 
+ var newOption; 
+ // create new options 
+ for (var i=0; i<cList.length; i++) { 
+ newOption = document.createElement("option"); 
+ newOption.value = cList[i];  // assumes option string and value are the same 
+ newOption.text=cList[i]; 
+ // add the new option 
+ try { 
+ cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE 
+ } 
+ catch (e) { 
+ cSelect.appendChild(newOption); 
+ } 
+ } 
+ } 
+//]]>
+</script>

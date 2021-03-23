@@ -1,0 +1,307 @@
+
+{% extends "shared/base.html" %}
+{% load static %}
+
+
+{% block title %}
+  Funmize-sub
+{% endblock title %}
+
+
+{% block mainmain %}
+<style>
+  #main, .dashboard, .sidebarr{
+    display: none;
+  }
+</style>
+  
+{% endblock mainmain %}
+
+
+{% block main %}
+  <section>
+    <div class="banner">
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="min-height: 50vh; min-width: 100%; background-color: rgb(191, 82, 212);">
+        <img src="{% static 'images/telepalaceimg.png' %}" width="20%" style="padding: 1rem;" alt="Mypagelogo"> 
+        <!-- <img src="{% static 'images/banner1.png' %}" class="d-block w-100" alt="..."> -->
+            <div class="row inbanner">
+              <div class="col-2 inbannerleft">
+                <center style="color: aliceblue;">
+                  <h2>TELEPALACE</h2><br>
+                  <p style="padding-left: 5px; font: 14px;">
+                    Bring up phone airtime and internet data; Get your electricity bills paid; renew TV subscriptions; and Transact Bitcoin at an amazing rate.
+                    We know what you want and you can always get the best of what you need. 
+                    You would always love to come more ...
+                  </p>
+                </center>    
+              </div>
+              <div class="col-2 inbannerright">
+                 <img src="{% static 'images/bann4.png' %}" alt="cute-guy-pressing-phone">
+                <!-- <img src="{% static 'images/cuteguy2.png' %}"  alt="cute-guy-pressing-phone"> -->
+              </div>
+            </div>
+            <center>   
+              <a href="{% url 'login' %}"><button class="getstarted btn">Get Started</button></a>
+            </center>
+    
+          <!-- <a href="#"><button class="getstarted btn">Get Started</button></a> -->
+
+          </div>
+          <div class="carousel-item" style="min-height: 50vh; min-width: 100%; background-color: green;">
+        <img src="{% static 'images/telepalaceimg.png' %}" width="20%" style="padding: 1rem;" alt="Mypagelogo"> 
+        <!-- <img src=" {% static 'images/airtime1.png' %} " class="d-block w-100" alt="..."> -->
+            <div class="row inbanner">
+              <div class="col-2 inbannerleft">
+                <center style="color: aliceblue;">
+                  <h2>TELEPALACE</h2><br>
+                  <p style="padding-left: 5px; font: 14px;">
+                    Bring up phone airtime and internet data; Get your electricity bills paid; renew TV subscriptions; and Transact Bitcoin at an amazing rate.
+                    We know what you want and you can always get the best of what you need. 
+                    You would always love to come more ...
+                  </p>
+                </center>    
+              </div>
+              <div class="col-2 inbannerright">
+                 <img src="{% static 'images/bann71.png' %}"  alt="cute-guy-pressing-phone">
+              </div>
+            </div>
+            <center>   
+              <a href="{% url 'login' %}"><button class="getstarted btn">Get Started</button></a>
+            </center>
+    
+          <!-- <a href="#"><button class="getstarted btn">Get Started</button></a> -->
+
+          </div>
+          <div class="carousel-item" style="min-height: 50vh; min-width: 100%; background-color: blue;">
+            <!-- <img src=" {% static 'images/cable1.png' %} " class="d-block w-100" alt="..."> -->
+        <img src="{% static 'images/telepalaceimg.png' %}" width="20%" style="padding: 1rem;" alt="Mypagelogo"> 
+            <div class="row inbanner">
+              <div class="col-2 inbannerleft">
+                <center style="color: aliceblue;">
+                  <h2>TELEPALACE</h2><br>
+                  <p style="padding-left: 5px; font: 14px;">
+                    Bring up phone airtime and internet data; Get your electricity bills paid; renew TV subscriptions; and Transact Bitcoin at an amazing rate.
+                    We know what you want and you can always get the best of what you need. 
+                    You would always love to come more ...
+                  </p>
+                </center>    
+              </div>
+              <div class="col-2 inbannerright">
+                 <img src="{% static 'images/bann4.png' %}"  alt="cute-guy-pressing-phone">
+                <!-- <img src="{% static 'images/cuteguy2.png' %}"  alt="cute-guy-pressing-phone"> -->
+              </div>
+            </div>
+            <center>   
+              <a href="{% url 'login' %}"><button class="getstarted btn">Get Started</button></a>
+            </center>
+    
+          <!-- <a href="#"><button class="getstarted btn">Get Started</button></a> -->
+          </div>
+        </div>
+        <!-- <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev"> -->
+          <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+          <!-- <span class="visually-hidden">Previous</span> -->
+        <!-- </a> -->
+        <!-- <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-bs-slide="next"> -->
+          <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+          <!-- <span class="visually-hidden">Next</span> -->
+        <!-- </a> -->
+      </div>
+    </div>
+
+
+
+
+
+      <!-- <div class="banner"> -->
+        <!-- <img src="{% static 'images/mytlogo.png' %}" width="20%" style="padding: 1rem;" alt="Mypagelogo">  -->
+        <!-- <div class="inbanner"> -->
+          <!-- <div class="inbannerleft"> -->
+            <!-- <center style="color: aliceblue;"> -->
+              <!-- <h2>FUNMIZESUB</h2><br> -->
+              <!-- <p style="padding-left: 5px; font: 14px;"> -->
+                <!-- Top up phone airtime or internet data. Pay electricity bills; renew TV subscriptions.  -->
+                <!-- Buy quality insurance covers, pay education bills, transfer funds and do more ... -->
+              <!-- </p> -->
+            <!-- </center>     -->
+          <!-- </div> -->
+          <!-- <div class="inbannerright"> -->
+            <!-- <img src="{% static 'images/cuteguy2.png' %}"  alt="cute-guy-pressing-phone"> -->
+          <!-- </div> -->
+        <!-- </div> -->
+        <!-- <center>    -->
+          <!-- <a href="#"><button class="getstarted btn">Get Started</button></a> -->
+        <!-- </center> -->
+      <!-- <a href="#"><button class="getstarted chatus btn">Chat us here</button></a> -->
+      <!-- </div> -->
+
+      <a href="#" class="whatsappbtn" style="color: green;">
+        <!-- <i class="bi bi-whatsapp">Getbutton</i> -->
+        <img src="{% static 'images/whatsappbtn.png' %}" width="15%" style="float: right; position: fixed; left: 85%; top: 80vh;" alt="">
+      </a>
+
+
+
+      <section class="servicesection" id="servicesection">
+        <h4 class="serviceheading">What We Serve Best</h4>
+        <div class="servicediv">
+          <div class="service">
+            <span class="avatar"> <i class="bi bi-check-circle-fill"></i> </span><br>
+            <h4 class="servicename"><span class="ashtag">#1</span><br> Data Top-Up</h4><br>
+            <img class="serviceimg" src="{% static 'images/data1.png' %}" width="80%" alt="">
+            <h6 class="servicedescription">Our Data service <br> is 100% automated <br> and at a very affordable rate.</h6>
+          </div>
+          <div class="service">
+            <span class="avatar"> <i class="bi bi-check-circle-fill"></i> </span><br>
+            <h4 class="servicename"><span class="ashtag">#2</span><br> Airtime Top-Up</h4><br>
+            <img class="serviceimg" src="{% static 'images/airtime1.png' %}" width="80%" alt="">
+            {% comment %} <h6 class="servicedescription">Worry less on mistakenly loaded airtime. We convert airtime to cash at a Jolly percentage</h6> {% endcomment %}
+            <h6 class="servicedescription">Worry less on toping your airtime. Buy airtime from us and enjoy not less than 3% bonus on every recharge</h6>
+          </div>
+          <div class="service">
+            <span class="avatar"> <i class="bi bi-check-circle-fill"></i> </span><br>
+            <h4 class="servicename"><span class="ashtag">#3</span><br> Cable Subscriptions</h4><br>
+            <img class="serviceimg" src="{% static 'images/cable1.png' %}" width="80%" alt="">
+            <h6 class="servicedescription">Load your phone with airtime from TELEPALACE and enjoy seamless bonuses</h6>
+          </div>
+          <div class="service">
+            <span class="avatar"> <i class="bi bi-check-circle-fill"></i> </span><br>
+            <h4 class="servicename"><span class="ashtag">#4</span><br> Bills Payment</h4><br>
+            <img class="serviceimg" src="{% static 'images/electricity1.jpg' %}" width="80%" alt="">
+            <h6 class="servicedescription">Pay all forms of bill at a lesser rate</h6>
+          </div>      
+        </div>
+          
+          <div class="service">
+            <span class="avatr"> <i class="bi bi-check-circle-fill"></i> </span><br>
+            <h4 class="servicename"><span class="ashtag">#5</span><br> Bitcoin Transaction</h4><br>
+            <img class="serviceimg" src="{% static 'images/btc1.jpg' %}" width="80%" alt="">
+            <h6 class="servicedescription">At TELEPALACE, you can buy and sell bitcoin crypto currency at a rate that would suit your wish</h6>
+          </div>
+
+      </section>
+      <section class="why">
+        <div class="whyhead">Why You Should Choose Us</div>
+        <div class="whymain">
+          <div class="whymainin">
+            <i class="fas fa-comments-dollar"></i>
+            <h3>Referral Bonus</h3>
+            <p>
+              Register as a Reseller to get your own referral link and earn #500 instantly when people register as resellers with your link. Keep referring and keep earning with your link.
+            </p><br>
+          </div>
+          <div class="whymainin">
+            <i class="fas fa-helicopter"></i>
+            <h3>Automated Services</h3>
+            <p>
+              Register as a Reseller to get your own referral link and earn #500 instantly when people register as resellers with your link. Keep referring and keep earning with your link.
+            </p><br>
+          </div>
+          <div class="whymainin">
+            <i class="fas fa-hands-helping"></i>
+            <h3>Customer Support</h3>
+            <p>
+              Register as a Reseller to get your own referral link and earn #500 instantly when people register as resellers with your link. Keep referring and keep earning with your link.
+            </p><br>
+          </div><br>
+          {% comment %} <div class="whymain4"> {% endcomment %}
+            {% comment %} <i class="fas fa-comments-dollar"></i> {% endcomment %}
+            {% comment %} <h3>Reliable API Services</h3> {% endcomment %}
+            {% comment %} <p> {% endcomment %}
+              {% comment %} Register as a Reseller to get your own referral link and earn #500 instantly when people register as resellers with your link. Keep referring and keep earning with your link. {% endcomment %}
+            {% comment %} </p><br> {% endcomment %}
+          {% comment %} </div> {% endcomment %}
+
+
+        </div>
+      </section>
+      
+      <section class="testimonials">
+        <h3 class="whyhead">Testimonials</h3>
+        <p>Testimonies shows the true value and worth of an organization</p>
+        <hr style="background-color: green;">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <center>
+            <div class="carousel-item active">
+              <!-- <div class = "divtestiimg"><img src="{% static 'images/pp1.jpg' %}" class="d-block w-100 testiimg" width="100px" height="130px" alt="People With Their Testimonies"></div> -->
+              <div class="testirating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <h5 class="testimonier">John Paul</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, autem nostrum iste optio id corrupti incidunt! Aliquid, officia? Iure maiores beatae voluptatum ab?</p>
+            </div>
+            <div class="carousel-item">
+              <!-- <div class = "divtestiimg"><img src="{% static 'images/pp2.jpg' %}" class="d-block w-100 testiimg" width="100px" height="130px" alt="People With Their Testimonies"></div> -->
+              <div class="testirating">
+                <i class="fas fa-star"></i></i>
+                <i class="fas fa-star"></i></i>
+                <i class="fas fa-star"></i></i>
+                <i class="fas fa-star"></i></i>
+                <i class="fas fa-star"></i></i>
+              </div>
+              <h5 class="testimonier">Abdullah Dara</h5>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati alias fugiat esse labore fugit asperiores dignissimos distinctio recusandae incidunt?</p>
+            </div>
+            <div class="carousel-item">
+              <!-- <div class = "divtestiimg"><img src="{% static 'images/pp3.jpg' %}" class="d-block w-100 testiimg" width="100px" height="130px" alt="People With Their Testimonies"></div> -->
+              <div class="testirating">              
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <h5 class="testimonier">Amao Recheal</h5>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus totam praesentium placeat consequatur ab, delectus quibusdam consequuntur tempore similique omnis?
+            </div>
+            <div class="carousel-item">
+              <!-- <div class = "divtestiimg"><img src="{% static 'images/pp4.jpg' %}" class="d-block w-100 testiimg" width="100px" height="130px" alt="People With Their Testimonies"></div> -->
+              <div class="testirating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <h5 class="testimonier">Kolade Taiwo</h5>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus totam praesentium placeat consequatur ab, delectus quibusdam consequuntur tempore similique omnis?
+            </div>
+            <div class="carousel-item">
+              <!-- <div class = "divtestiimg"><img src="{% static 'images/pp3.jpg' %}" class="d-block w-100 testiimg" width="100px" height="130px" alt="People With Their Testimonies"></div> -->
+              <div class="testirating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <h5 class="testimonier">Ryan Janet</h5>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus totam praesentium placeat consequatur ab, delectus quibusdam consequuntur tempore similique omnis?
+            </div>
+            <style>
+              .testirating{
+                color: gold;
+              }
+            </style>
+          </center>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+      </section>
+
+  </section>
+{% endblock main %}

@@ -1,0 +1,92 @@
+
+{% extends "shared/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+  Dashboard
+{% endblock title %}
+
+
+
+
+{% block maintwo %}
+<div class="mainbarr">
+  <div class="top">
+    <h5><a href="#sellairtimeform">Airtime</a></h5>
+    <h5><a href="#need">Purchase Services</a></h5>
+    <h5><a href="{% url 'funding' %}">Funding</a></h5>
+    <h6 id="greetings">
+        <p style="color: greenyellow;">Welcome, {{request.user.username}}</p>
+      {% comment %} {% if request.user.is_authenticated %} {% endcomment %}
+        {% comment %} <p style="color: greenyellow;">Welcome, {{request.user.username}}</p> {% endcomment %}
+      {% comment %} {% endif %} {% endcomment %}
+    </h6>
+  </div>
+
+  <div >      
+    {% if messages %}
+      {% for item in messages %}
+          <p style="background-color: rgb(105, 236, 105); color: aliceblue; padding: 5px; border-radius: 8px;"> {{ item }} </p>
+      {% endfor %} 
+    {% endif %}
+  </div>
+
+
+  <form action="{% url 'profile' %}" method="POST">
+    {% csrf_token %}
+  <section class="fullprofile">
+      <div class="customerprofile">
+          <div class="profilehead">
+            <h4 style="text-align: center; margin-bottom: 0;">Customer Details</h4>
+            <h6 style="text-align: center; margin-top: 0;">Update your presonal details</h6>
+            <hr><br>
+          </div>
+          <div class="profileinfo">
+              <label for="username">Username :</label> <input type="text" name="username" id="" value="{{request.user.username}}"> <br><br>
+              <label for="email">Email Address:</label> <input type="text" name="email" id="" value="{{request.user.email}}"> <br><br>
+              <label for="phonenumber">Phone Number:</label> <input type="text" name="phonenumber" id=""> <br><br>
+              <label for="status">Customer Status :</label> <input type="text" name="status" id="" value="BEGINNER"> <br><br>
+              <label for="referralid">Refferal ID :</label> <input type="text" name="referralid" id="" value="TELP00{{request.user.id}}M54DS"> <br><br>
+              <label for="bankname">Bank Name :</label> <select name="bankname" id="">
+                  <option value="choosebank">Choose Your Bank</option>
+                  <option value="uba">UBA</option>
+                  <option value="firstbank">FirstBank</option>
+                  <option value="gtb">gtb</option>
+                  <option value="access">Sterling</option>
+                  <option value="access">Fidelity</option>
+                  <option value="access">Access</option>
+                  <option value="access">Stanbic</option>
+                  <option value="access">Zenith</option>
+                  <option value="access">Access</option>
+                  <option value="access">Diamond</option>
+                  <option value="access">Polaris</option>
+                  <option value="others">others</option>
+              </select> <br><br>
+              <label for="Acctname"> Account Name :</label> <input type="text" name="acctname" id=""> <br><br>
+              <label for="acctnumber"> Account Number :</label> <input type="text" name="acctnumber" id=""> <br><br>
+          </div>
+        
+
+      </div><br><br>
+      <input type="submit" value="Save Changes" class="profilebtn2 btn btn-success" style="float: right; margin-right: 10px; width: 30%;">
+
+      <a href="#" style="float: right; margin-right: 10px;" class="profilebtn1 btn btn-primary">Status Upgrade</button></a>
+      
+<br><br>
+  </section>
+  </form>
+</div>
+
+{% endblock maintwo %}
+
+
+
+
+
+
+
+
+
+
+

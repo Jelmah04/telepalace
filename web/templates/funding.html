@@ -1,0 +1,139 @@
+
+{% extends "shared/base.html" %}
+{% load static %}
+
+{% block title %}
+  Fund my wallet
+{% endblock title %}
+
+
+
+{% block maintwo %}
+
+    <div class="mainbarr">
+      <div class="top" style="display:grid; grid-template-columns:1fr 1fr 3fr 6fr">
+        <h5><a href="">Card</a></h5>
+        <h5><a href="">Bank</a></h5>
+        <h5><a href="">Pay with Airtime</a></h5>
+        <h5 id="greetings">
+          {% if request.user.is_authenticated %}
+            <p style="color: greenyellow;">God Bless {{request.user.username}} for us</p>
+          {% endif %}
+        </h5>
+      </div>
+
+      <div class="bigfund">
+          <center><h3 style="color: rgb(36, 160, 160);">Fund Your Wallet</h3></center>
+      </div>
+<style>
+    .fundsec{
+        width: 80%;
+        margin: 0 auto;
+    }
+</style>
+      <section class="fundsec">
+          <p>
+            By funding your wallet, you are legible to get the best of our services at TELEPALACE.
+            Kindly use our online payment method for payments between N100 and N2450 and get your 
+            wallet funded automatically as soon as payment is successful. <br>
+          </p>
+            <b class="inb">Instant Funding With Debit Card</b>  
+
+          <h6>  
+            Amount to FUND between N100 to N2450
+          </h6>
+
+          <form> 
+          <div class="topay">
+            <input type="number" style="width: 100%; margin: 0 auto;" id="amount" placeholder="Input the amount to be funded in Naira" required><br><br>
+              <center>
+                <button type="submit" id="btn-pay" style="width: 90%; margin:0 auto;" class="btn btn-success">Make Payment</button>
+              </center>
+          </div>
+          </form>
+<br>
+          <div class="remainingnote">
+            <b class="inb">Internet banking, Transfer and Bank deposit</b>  
+            <p>
+                Bank Deposit, ATM Transfer, Online Bank Transfer, USSD code & other Instant/Automated Payments are allowed for payment. 
+                Any payment above ₦2450 can be paid into any of our bank account. 
+                (Dear customer, kindly add N100 service charge to any payment less than N5000, 
+                while you add N55 service charges to payment above 9999 to our bank. Any transfer between N5000 and N9999 attracts no service charges ).
+                Depositor's name, narration or remarks should be your the mail account you registered with else, 
+                give us a notification immediately after payment via our WhatsApp contact.
+                Kindly send the payment details to our whatsapp number only via
+            </p>
+            <strong>08156456526</strong><br>
+            NOTE: <i>Your account will be funded as soon as your payment is verified.</i>
+<br><br><br>
+            <h5 style="color: rgb(36, 160, 160);">PAY TO ACCOUNT BELOW IF YOU ARE FUNDING MORE THAN N2,450</h5>
+            <h6>
+              <strong>
+                ACCOUNT NAME: Dauda Jelili Abiola <br><br>
+              </strong>
+                UBA BANK	--	0011469369 <br><br>
+                GTBANK	--	5748783759 <br><br>
+                ACCESS BANK	--	08736874647 <br>
+            </h6>
+<br><br>
+          </div>
+      </section>
+
+
+
+    </div>
+
+
+
+
+<script src="/static/libs/jquery/jquery.min.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script type="text/javascript">
+  const paymentForm = document.getElementById('btn-pay');
+  paymentForm.addEventListener("click", payWithPaystack, false);
+
+  function payWithPaystack(e) {
+        e.preventDefault();
+        var user_amount = $("#amount").val();
+        let handler = PaystackPop.setup({
+            key: '{{ paystack_key }}', // Replace with your public key
+            email: '{{ user.email }}',
+            amount: user_amount * 100,
+            ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+            // label: "Optional string that replaces customer email"
+            onClose: function(){
+                alert('Payment Cancelled.');
+            },
+            callback: function(response){
+              console.log(response);
+                $.ajax({
+                    url: 'http://localhost:2000/verify_transaction?reference='+ response.reference,
+                    method: 'get',
+                    success: function (res) {
+                      console.log(res);
+                        // the transaction status is in response.data.status
+                        if(res.data.status == 'success') {
+                            let message = 'Payment completed!    Thanks.\n \n \nClick OK to Continue';
+                            alert(message);
+                            // location.reload();
+                        } else {
+                            let message = 'Payment was not completed! Click OK to Try Again';
+                            alert(message);
+                            // location.reload();
+                        }
+                    }
+                });
+                
+            }
+        });
+        handler.openIframe();
+    }
+</script>
+
+{% endblock maintwo %}
+
+
+
+
+{% comment %} <input type="hidden" class="form-control input-lg" name="phonenumber" value="jelmah02@gmail.com"> {% endcomment %}
+

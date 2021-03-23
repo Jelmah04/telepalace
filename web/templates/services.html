@@ -1,0 +1,87 @@
+
+{% extends "shared/base.html" %}
+{% load static %}
+
+
+{% block title %}
+Funmizesub Data Support
+{% endblock title %}
+
+
+
+
+{% block maintwo %}
+
+<style>
+    .servediv{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* width: 80%; */
+        /* margin: 0 auto; */
+    }
+    .service{
+        background-color: aliceblue;
+        color: #cb26e0;
+    }
+    .service h5{
+        width: 80%;
+    }
+    .anw{
+        color: white;
+        /* font-weight: bold; */
+        text-decoration: none;
+    }
+    .anw:hover{
+        color: white;
+    }
+
+
+
+     /* Small devices (landscape phones, 576px and up) */
+     @media (max-width: 768px) {   
+        .servediv{
+        display: grid;
+        grid-template-columns: 1fr;
+        /* width: 80%; */
+        /* margin: 0 auto; */
+    }
+  
+    
+    }
+    
+    </style>
+    
+    
+
+
+<section class="servesec">
+    <center><h3 ><strong>Our Services</strong></h3></center>
+    <div class="servediv">
+        <div class="service">
+            <h4>Airtime</h4>
+            <center><a class="anw" href="{% url 'airtime' %}"><h5 class="btn btn-primary"><strong>Purchase</strong></h5></a></center>
+        </div>
+        <div class="service">
+            <h4>Data Subscription</h4>
+            <center><a class="anw" href="{% url 'data' %}"><h5 class="btn btn-primary"><strong>Purchase</strong></h5></a></center>
+        </div>
+        <div class="service">
+            <h4>Cable Subscription</h4>
+            <center><a class="anw" href="{% url 'cable' %}"><h5 class="btn btn-primary"><strong>Purchase</strong></h5></a></center>
+        </div>
+        <div class="service">
+            <h4>Electricity Bill</h4>
+            <center><a class="anw" href="{% url 'electricity' %}"><h5 class="btn btn-primary"><strong>Purchase</strong></h5></a></center>
+        </div>
+        <div class="service">
+            <h4>Get/sell Bitcoin</h4>
+            <center><a class="anw" href="https://api.whatsapp.com/send?phone=971504131477&text=&source=&data="><h5 class="btn btn-primary"><strong>Transact</strong></h5></a></center>
+        </div>
+        {% comment %} <div class="service"> {% endcomment %}
+            {% comment %} <h4>Get Bitcoin Online</h4> {% endcomment %}
+            {% comment %} <center><a class="anw" href="https://api.whatsapp.com/send?phone=2348118236545"><h5 class="btn btn-primary"><strong>Purchase</strong></h5></a></center> {% endcomment %}
+        {% comment %} </div> {% endcomment %}
+    </div>
+</section>
+
+{% endblock maintwo %}
